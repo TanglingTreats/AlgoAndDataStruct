@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "linkedlist.h": "c",
+        "vector": "c",
+        "xstring": "c"
+    }
+}
