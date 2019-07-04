@@ -74,13 +74,12 @@ void addNodePos(node_ptr head, int value, int pos)
     node->data = value; //update data of node with value
 
     temp = head;
-    for(int i = 1; i != pos-1; i++)
+    for(int i = 1; i != pos - 1; i++)
     {
         temp = temp->next;
-
+    }
         node->next = temp->next; //update new node next pointer with original pos pointer
         temp->next = node; //point previous node to new node pointer
-    }
 }
 
 //Output list of nodes
