@@ -19,6 +19,7 @@ node_ptr addNode(node_ptr head, int value)
 
     if(temp == NULL)
     {
+        printf("POINTER IS NULL. No node was create");
         return NULL;
     }
 
@@ -40,12 +41,56 @@ node_ptr addNode(node_ptr head, int value)
     return head;
 }
 
+node_ptr addNodeFront(node_ptr head, int value)
+{
+    node_ptr node, temp;
+
+    node = createNode();
+
+    if(node == NULL)
+    {
+        printf("POINTER IS NULL. No node was create");
+        return NULL;
+    } 
+
+    node->data = value; //update data of node with value
+    node->next = head; //update next ptr with current head ptr
+
+    return node; //return this node as list entry point
+}
+
+void addNodePos(node_ptr head, int value, int pos)
+{
+    node_ptr node, temp;
+
+    node = createNode();
+
+    if(node == NULL)
+    {
+        printf("POINTER IS NULL. No node was create");
+        return; //stop execution
+    }
+
+    node->data = value; //update data of node with value
+
+    temp = head;
+    for(int i = 1; i != pos-1; i++)
+    {
+        temp = temp->next;
+
+        node->next = temp->next; //update new node next pointer with original pos pointer
+        temp->next = node; //point previous node to new node pointer
+    }
+}
+
 //Output list of nodes
 void printList(node_ptr n)
 {
+    int i = 1;
     while(n != NULL)
     {
-        printf("Data value is: %i\n", n->data);
+        printf("%i. Data value is: %i\n", i, n->data);
         n = n->next;
+        i++;
     }
 }
